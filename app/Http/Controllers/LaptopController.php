@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Laptop;
 use Illuminate\Http\Request;
 
 class LaptopController extends Controller
@@ -11,7 +12,8 @@ class LaptopController extends Controller
      */
     public function index()
     {
-        
+        $laptops = Laptop::latest()->get();
+        return view('laptops.index', compact('laptops'));
     }
 
     /**
