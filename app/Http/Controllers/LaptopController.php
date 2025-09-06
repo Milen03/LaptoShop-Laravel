@@ -21,7 +21,7 @@ class LaptopController extends Controller
      */
     public function create()
     {
-        //
+        return view('laptops.create');
     }
 
     /**
