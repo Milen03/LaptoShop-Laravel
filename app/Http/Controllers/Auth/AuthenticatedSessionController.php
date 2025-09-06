@@ -28,7 +28,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // Try to redirect to dashboard, fallback to laptops list if dashboard route not defined
+        try {
+            return redirect()->intended(route('dashboard'));
+        } catch (\Exception $e) {
+            return redirect()->intended(route('laptops.index'));
+        }
     }
 
     /**

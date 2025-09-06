@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Laptop;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class LaptopController extends Controller
 {
+    use AuthorizesRequests;
     /**
      * Display a listing of the resource.
      */
@@ -59,8 +61,8 @@ class LaptopController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy()
     {
-        //
+       
     }
 }
